@@ -31,7 +31,7 @@ resource "google_project_iam_member" "project_iam_binding" {
 
 resource "google_service_account_iam_binding" "sa_iam_binding" {
   for_each = {
-    for pr_role in local.sa_config_project_roles :
+    for pr_role in local.sa_config_iam_roles :
     join(":", [
       pr_role.sa_name,
       pr_role.region,
