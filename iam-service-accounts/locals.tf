@@ -3,7 +3,7 @@ locals {
   sa_email_suffix = "${var.project_id}.iam.gserviceaccount.com"
   sa_names = [for sa_purpose, sa_props in local.sa_config : sa_props["name"]]
   sa_config_project_roles = flatten([
-    for sa_purpose_sa_props in local.sa_config: [
+    for sa_purpose, sa_props in local.sa_config: [
       for role_name in sa_props["project_roles"] : {
         sa_name = sa_props["name"]
         role_name = role_name
