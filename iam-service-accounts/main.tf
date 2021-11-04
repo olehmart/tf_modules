@@ -18,7 +18,7 @@ resource "google_project_iam_member" "project_iam_binding" {
       pr_role.region,
       replace(pr_role.role_name, "/", "_")
     ]
-   ) = > pr_role
+   ) => pr_role
   }
   depends_on = [
     google_service_account.service_account,
@@ -37,7 +37,7 @@ resource "google_service_account_iam_binding" "sa_iam_binding" {
       pr_role.region,
       replace(pr_role.role_name, "/", "_")
     ]
-   ) = > pr_role
+   ) => pr_role
   }
   service_account_id = join("/", [
     "projects",
