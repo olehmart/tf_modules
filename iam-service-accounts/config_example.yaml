@@ -1,0 +1,11 @@
+---
+service_account1:
+  name: sa1
+  region: us-east1
+  project_roles:
+    - roles/bigquery.jobUser
+    - roles/dataproc.worker
+  iam_roles:
+    roles/iam.serviceAccountTokenCreator:
+      - SELF
+      - sa1
