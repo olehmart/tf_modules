@@ -10,7 +10,7 @@ locals {
         vpc_self_link = gke_props["vpc_self_link"]
         subnetwork_self_link = gke_props["subnetwork_self_link"]
         node_locations = gke_props["node_locations"]
-        enable_client_certificate_authorization = lookup(gke_props["enable_client_certificate_authorization"], "false")
+        enable_client_certificate_authorization = lookup(gke_props, "enable_client_certificate_authorization", "false")
         service_account_email = gke_props["common_node_pool_config"]["service_account_email"]
       }
   ]
