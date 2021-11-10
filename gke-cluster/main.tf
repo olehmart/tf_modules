@@ -22,9 +22,13 @@ resource "google_container_cluster" "gke_cluster" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
+  node_config {
+    service_account = each.value.service_account_email
+  }
+
   master_auth {
-    username = ""
-    password = ""
+    //username = ""
+    //password = ""
 
     client_certificate_config {
       issue_client_certificate = each.value.enable_client_certificate_authorization
