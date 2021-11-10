@@ -1,0 +1,17 @@
+---
+gke_cluster1:
+  name: gke-cluster1
+  min_master_version: 1.20.10-gke.1600
+  location: us-central1
+  vpc_self_link: projects/project-id/global/networks/vpc
+  subnetwork_self_link: projects/project-id/regions/us-central1/subnetworks/subnetwork
+  node_locations:
+    - us-central1-a
+    - us-central1-b
+  enable_client_certificate_authorization: true
+  common_node_pool_config:
+    service_account_email: tf-sa-673@peerless-robot-331021.iam.gserviceaccount.com
+  node_pool_configurations_list:
+    - name: node-pool1
+      initial_node_count: 1
+      machine_type: "e2-medium"
