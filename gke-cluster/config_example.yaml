@@ -17,6 +17,6 @@ gke_cluster1:
       machine_type: "e2-medium"
   network_policy:
     enabled: true
-    provider: "PROVIDER_UNSPECIFIED"
+    provider: "CALICO"
   enable_binary_authorization: true
   pod_security_policy_enabled: true
