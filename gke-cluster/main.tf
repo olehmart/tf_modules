@@ -34,6 +34,17 @@ resource "google_container_cluster" "gke_cluster" {
       issue_client_certificate = each.value.enable_client_certificate_authorization
     }
   }
+
+  enable_binary_authorization = each.value.enable_binary_authorization
+
+  pod_security_policy_config {
+    enabled = each.value.pod_security_policy_enabled
+  }
+
+  network_policy {
+    enabled = each.value.network_policy_enabled
+    provider = each.value.network_policy_provider
+  }
 }
 
 resource "google_container_node_pool" "gke_node_pool" {

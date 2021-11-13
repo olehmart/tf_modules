@@ -12,6 +12,10 @@ locals {
         node_locations = gke_props["node_locations"]
         enable_client_certificate_authorization = lookup(gke_props, "enable_client_certificate_authorization", "false")
         service_account_email = gke_props["common_node_pool_config"]["service_account_email"]
+        network_policy_enabled = lookup(lookup(gke_props, "network_policy", {}), "enabled", "false")
+        network_policy_provider = lookup(lookup(gke_props, "network_policy", {}), "provider", "PROVIDER_UNSPECIFIED")
+        enable_binary_authorization = lookup(gke_props, "enable_binary_authorization", "false")
+        pod_security_policy_enabled = lookup(gke_props, "pod_security_policy_enabled", "false" )
       }
   ]
   ])
