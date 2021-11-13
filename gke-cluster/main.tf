@@ -43,7 +43,7 @@ resource "google_container_cluster" "gke_cluster" {
 
   addons_config {
     network_policy_config {
-      disabled = each.value.pod_security_policy_enabled
+      disabled = each.value.pod_security_policy_enabled == true ? false : true
     }
   }
 
