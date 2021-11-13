@@ -41,6 +41,12 @@ resource "google_container_cluster" "gke_cluster" {
     enabled = each.value.pod_security_policy_enabled
   }
 
+  addons_config {
+    network_policy_config {
+      disabled = each.value.pod_security_policy_enabled
+    }
+  }
+
   network_policy {
     enabled = each.value.network_policy_enabled
     provider = each.value.network_policy_provider
